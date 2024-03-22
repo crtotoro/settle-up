@@ -3,3 +3,9 @@
   background-color: lightgreen;
   color: white;
 }
+
+.transaction {
+  border: 1px solid grey;
+  box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.1);
+  border-radius: .75rem;
+}
