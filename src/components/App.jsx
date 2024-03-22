@@ -1,6 +1,7 @@
-import Stack from 'react-bootstrap/Stack';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
+
+import FileProcessor from './FileProcessor';
+
+
 import { InputGroup } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 
