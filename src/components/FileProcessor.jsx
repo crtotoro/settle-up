@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { InputGroup, Button, Form, Stack } from 'react-bootstrap';
+import '../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 import Papa from 'papaparse';
 import moment from 'moment';
 import { isAfterGivenDate, isMatch } from '../utils/helpers';
@@ -69,6 +70,15 @@ export default function FileProcessor({ setTransactions }) {
       });
     }
   },[file]);
+
+  /* Tooltips*/
+  useEffect(() => {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new window.bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  }, []);
+
  
   /* Temporary Logging */
   useEffect(() => {inputFiles && console.log("File ready for upload:", inputFiles[0].name)}, [inputFiles])
@@ -83,25 +93,15 @@ export default function FileProcessor({ setTransactions }) {
         <Form.Group controlId="statementCsv" >
           <Form.Label><b>Step 1.</b> Upload your credit card statement</Form.Label>
           <InputGroup>
-            <Form.Control ref={fileInputRef} type='file' onChange={(e) => setInputFiles(e.target.files)} />
+            <Form.Control ref={fileInputRef} type='file' accept='.csv, text/csv' onChange={(e) => setInputFiles(e.target.files)} />
             {inputFiles && inputFiles.length ? <Button variant='primary' onClick={handleUpload}>Upload</Button> : <Button variant='outline-secondary' disabled>Upload</Button>}
           </InputGroup>
-          <div className='d-flex justify-content-between'>
-            <Form.Text className='text-muted'>.csv format only</Form.Text>
-            {file && <Form.Text className='text-muted'>.csv format only</Form.Text>}
-          </div>
         </Form.Group>
         <Form.Group id="date-range" >
           <Form.Label><b>Step 2.</b> Choose start and end date </Form.Label>
           <Stack direction='horizontal' gap={3}>
-            <Stack>
-              <Form.Control id="start-date" type="date" value={dates.start} name="start" onChange={handleDateChange} />
-              <Form.Text className="text-muted p2" >Start Date</Form.Text>
-            </Stack>
-            <Stack>
-              <Form.Control id="end-date" type="date" values={dates.end} name="end" onChange={handleDateChange} />
-              <Form.Text className="text-muted p2">End Date</Form.Text>
-            </Stack>
+            <Form.Control id="start-date" type="date" value={dates.start} name="start" onChange={handleDateChange} data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Date"/>
+            <Form.Control id="end-date" type="date" value={dates.end} name="end" onChange={handleDateChange} data-bs-toggle="tooltip" data-bs-placement="bottom" title="End Date"/>
           </Stack>
         </Form.Group>
       </Stack>
