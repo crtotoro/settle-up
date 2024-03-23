@@ -18,3 +18,13 @@ export default function Settings() {
     </div>
   )
 }
+/* Todo
+ * - Settings Layout
+ *   - Move dates into settings
+ *   - Default payor toggle -> primary or secondary
+ *   - Default resolution -> split vs 100% owed
+ *   - Add/View Matchers
+ *     - Include
+ *     - Verify
+ *     - Exclude
+ */
