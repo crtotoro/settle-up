@@ -1,18 +1,30 @@
-import React from 'react'
-import { Accordion, FloatingLabel, Form, InputGroup } from 'react-bootstrap'
+import React, { useState, useEffect} from 'react'
+import { Accordion, FloatingLabel, Form, InputGroup, Stack } from 'react-bootstrap'
+import '../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Settings() {
+  const [ dates, setDates ] = useState({ start: '', end: '' });
+
+  const handleDateChange = e => setDates(currentDates => { 
+    return { ...currentDates, [e.target.name]: e.target.value }
+  });
+
+  /* Tooltips*/
+  useEffect(() => {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new window.bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  }, []);
+  
   return (
-    <div className='settings'>
+    <div className='settings p-2 d-flex flex-column align-items-center gap-1'>
       <h5>Settings</h5>
-      <Form className='d-flex gap-3'>
-        <Form.Group>
-          <FloatingLabel controlId='participant1' label='Primary' className='mb-3'>
-            <Form.Control type='text' name='participant1' placeholder='Enter a name...'/>
-          </FloatingLabel>
-          <FloatingLabel controlId='participant2' label='Secondary' className='mb-3'>
-            <Form.Control type='text' name='participant2' placeholder='Enter a name...'/>
-          </FloatingLabel>
+      <Form className='d-flex flex-column'>
+        <Form.Group id="date-range" className='d-flex gap-3' >
+            <Form.Label>Range</Form.Label>
+            <Form.Control id="start-date" type="date" value={dates.start} name="start" onChange={handleDateChange} data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Date"/>
+            <Form.Control id="end-date" type="date" value={dates.end} name="end" onChange={handleDateChange} data-bs-toggle="tooltip" data-bs-placement="bottom" title="End Date"/>
         </Form.Group>
       </Form>
     </div>
@@ -20,7 +32,6 @@ export default function Settings() {
 }
 /* Todo
  * - Settings Layout
- *   - Move dates into settings
  *   - Default payor toggle -> primary or secondary
  *   - Default resolution -> split vs 100% owed
  *   - Add/View Matchers
