@@ -5,38 +5,11 @@ import moment from 'moment';
 import { isAfterGivenDate, isMatch } from '../utils/helpers';
 
 
-const initConfirmed = [
-  'netflix', 
-'hulu',
-'orkin  llc', 
-'town of normal', 
-'utility', 
-'frs decatur', 
-'sams scan-n-go', 
-'nicor gas', 
-'peacock', 
-'paramount', 
-'prime video', 
-'lg cns',
-'prairie oak',
-'amazon digit',
-'chewy'
-];
-const initPending = [
-  'amazon.com', 
-  'menards', 
-  'home depot', 
-  'apple', 
-  'american air', 
-  'lowes', 
-  'amzn mktp',
-  'red raccoon'
-];
+
 const initExcludeColumns = ["Post Date", "Category", "Type", "Memo"];
 
 
 export default function FileProcessor({ setTransactions }) {
-  const [ matchers, setMatchers ] = useState({ confirmed: [...initConfirmed], pending: [...initPending], exclude: [] });
   const [ config, setConfig ] = useState({ excludeColumns: [...initExcludeColumns] })
 
   const [inputFiles, setInputFiles] = useState(null);

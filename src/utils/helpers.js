@@ -10,3 +10,5 @@ export function isMatch(value, matchers) {
   const lowercasedValue = value.toLowerCase();
   return matchers.some(matcher => lowercasedValue.includes(matcher));
 }
+
+export const toTitle = text => text[0].toUpperCase() + text.slice(1); 

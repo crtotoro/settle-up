@@ -1,8 +1,12 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import { Accordion, AccordionBody, FloatingLabel, Form, InputGroup, Stack } from 'react-bootstrap'
 import '../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
+import matcherReducer from '../state/reducers/matcherReducer.js';
+import { initMatchers } from '../state/init/initMatchers.js';
+import TextMatcher from './TextMatcher.jsx';
 
 export default function Settings() {
+  const [ textMatchers, matcherDispatch ] = useReducer(matcherReducer, initMatchers);
   const [ dates, setDates ] = useState({ start: '', end: '' });
 
   const handleDateChange = e => setDates(currentDates => { 
@@ -31,21 +35,13 @@ export default function Settings() {
             <div className='settings-group p-3'>
               <Form.Label>Transaction Matchers</Form.Label>
               <Form.Group id="matchers" className='row' >
-                <Form.Group className='col'>
-                  <FloatingLabel controlId='include-matcher' label='Include if contains'>
-                    <Form.Control type="text" name="include" placeholder='Text...'/>
-                  </FloatingLabel>
-                </Form.Group>
-                <Form.Group className='col'>
-                  <FloatingLabel controlId='exclude-matcher' label='Exclude if contains'>
-                    <Form.Control type="text" name="exclude" placeholder='Text...'/>
-                  </FloatingLabel>
-                </Form.Group>
-                <Form.Group className='col'>
-                  <FloatingLabel controlId='verify-text-matcher' label='Verify if contains' >
-                    <Form.Control type="text" name="verify-text" placeholder='Text...'/>
-                  </FloatingLabel>
-                </Form.Group>
+                {Object.keys(textMatchers).map(key => 
+                  <TextMatcher 
+                    key={textMatchers[key].type} 
+                    type={textMatchers[key].type} 
+                    matchers={textMatchers[key].matchers}
+                    matcherDispatch={matcherDispatch} 
+                  />)}
                 <Form.Group className='col'>
                   <InputGroup>
                     <InputGroup.Text>$</InputGroup.Text>
