@@ -10,15 +10,20 @@ export default function TextMatcher({ type, matchers, matcherDispatch }) {
  
   return (
     <div className='text-matcher col'>
-      <InputGroup>
+      <InputGroup className='add-matcher'>
         <FloatingLabel controlId={type + '-matcher'} label='Contains text'>
           <Form.Control type="text" name={type} placeholder='Contains text'/>
         </FloatingLabel>
         <Button variant='outline-secondary'>Add</Button>
       </InputGroup>
-      <Accordion>
-        <Accordion.Item>
-          <Accordion.Header>{titleType + ':'}</Accordion.Header>
+      <Accordion className='matcher-list-header' defaultActiveKey={0}>
+        <Accordion.Item eventKey='1'>
+          <Accordion.Header className='p-0'>
+            <div className='d-flex flex-column m-0'>
+              <div>{titleType + ':'}</div>
+              <Form.Text muted>{`(${matchers.length} applied)`}</Form.Text>
+            </div>
+          </Accordion.Header>
           <Accordion.Body>
             <MatcherList {...matcherListProps} />
           </Accordion.Body>
