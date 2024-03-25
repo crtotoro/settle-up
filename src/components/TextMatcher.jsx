@@ -16,7 +16,7 @@ export default function TextMatcher({ type, matchers, matcherDispatch }) {
   const handleAccordionClick = key => setActiveKey(activeKey === key ? null : key);
 
   return (
-    <div className='text-matcher col'>
+    <div className='text-matcher col-12 mb-2'>
       <InputGroup className='add-matcher'>
         <FloatingLabel controlId={type + '-matcher'} label='Contains text'>
           <Form.Control type="text" name={type} value={newMatcherText} onChange={(e) => setNewMatcherText(e.target.value)} placeholder='Contains text'/>
