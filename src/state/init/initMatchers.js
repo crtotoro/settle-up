@@ -1,3 +1,5 @@
+import { randomUUID } from "../../utils/helpers";
+
 const initInclude = [
   'netflix', 
   'hulu',
@@ -29,7 +31,7 @@ const initVerify = [
 const initExclude = [];
 
 const mapInitMatchers = matchers => {
-  return matchers.map(matcher => ({ id: crypto.randomUUID(), text: matcher }));
+  return matchers.map(matcher => ({ id: randomUUID(), text: matcher }));
 }
 
 export const initMatchers = { 

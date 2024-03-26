@@ -1,5 +1,6 @@
 import React from 'react'
 import Transaction from './Transaction'
+import { randomUUID } from '../utils/helpers'
 
 export default function TransactionList({ transactions, setTransactions }) {
   return (
@@ -15,7 +16,7 @@ export default function TransactionList({ transactions, setTransactions }) {
       ) : 'Upload a statement to get started...'}
       {transactions
         .filter(transaction => transaction["Description"])
-        .map(transaction => ({...transaction, id: crypto.randomUUID()}))
+        .map(transaction => ({...transaction, id: randomUUID()}))
         .map(transaction => <Transaction key={transaction.id} transaction={transaction} />)
       }
     </div>

@@ -1,3 +1,5 @@
+import { randomUUID } from "../../utils/helpers";
+
 export default function matcherReducer(state, action) {
   switch(action.type) {
     case 'INCLUDE_ADD': {
@@ -6,7 +8,7 @@ export default function matcherReducer(state, action) {
 
       return { ...state, 
         include: { ...include, 
-          matchers: [ ...matchers, { id: crypto.randomUUID() , text: action.payload } ]
+          matchers: [ ...matchers, { id: randomUUID() , text: action.payload } ]
       }};
     }
     case 'INCLUDE_REMOVE': {
@@ -24,7 +26,7 @@ export default function matcherReducer(state, action) {
 
       return { ...state, 
         exclude: { ...exclude, 
-          matchers: [ ...matchers, { id: crypto.randomUUID() , text: action.payload } ]
+          matchers: [ ...matchers, { id: randomUUID() , text: action.payload } ]
       }};
     }
     case 'EXCLUDE_REMOVE': {
@@ -42,7 +44,7 @@ export default function matcherReducer(state, action) {
 
       return { ...state, 
         verify: { ...verify, 
-          matchers: [ ...matchers, { id: crypto.randomUUID() , text: action.payload } ]
+          matchers: [ ...matchers, { id: randomUUID() , text: action.payload } ]
       }};
     }
     case 'VERIFY_REMOVE': {
