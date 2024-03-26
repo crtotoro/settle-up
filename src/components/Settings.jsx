@@ -48,7 +48,7 @@ export default function Settings({ showSettings, handleHideSettings }) {
             <Form.Group className='col-12 mb-2'>
               <InputGroup>
                 <InputGroup.Text>$</InputGroup.Text>
-                <FloatingLabel controlId='verify-amount-matcher' label='Verify minimum'>
+                <FloatingLabel controlId='verify-amount-matcher' label='Verify minimum amount'>
                   <Form.Control type="number" name="verify-amount" min='0' step='5' placeholder='Amount...'/>
                 </FloatingLabel>
               </InputGroup>

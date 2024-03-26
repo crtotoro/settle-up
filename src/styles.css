@@ -13,6 +13,8 @@
   box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.1);
 }
 
+
+/*--- Bootstrap Overrides ---*/ 
 .accordion-button {
   --bs-accordion-btn-padding-y: 5px;
   --bs-accordion-btn-padding-x: 10px;
@@ -28,4 +30,3 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-

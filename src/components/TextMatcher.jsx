@@ -27,7 +27,7 @@ export default function TextMatcher({ type, matchers, matcherDispatch }) {
         <Accordion.Item eventKey='1'>
           <Accordion.Header className='p-0'>
             <div className='d-flex flex-column m-0'>
-              <div>{titleType + ':'}</div>
+              <div>{titleType + ' transactions matching:'}</div>
               <Form.Text muted>{`(${matchers.length} applied)`}</Form.Text>
             </div>
           </Accordion.Header>

@@ -43,16 +43,12 @@ export default function FileProcessor({ setTransactions }) {
   useEffect(() => {file && console.log("File uploaded:", file.name)},[file]);
 
   return (
-    <>
-      <Stack direction="horizontal" gap={3}>
-        <Form.Group controlId="statementCsv" >
-          <Form.Label><b>Step 1.</b> Upload your credit card statement</Form.Label>
-          <InputGroup>
-            <Form.Control ref={fileInputRef} type='file' accept='.csv, text/csv' onChange={(e) => setInputFiles(e.target.files)} />
-            {inputFiles && inputFiles.length ? <Button variant='primary' onClick={handleUpload}>Upload</Button> : <Button variant='outline-secondary' disabled>Upload</Button>}
-          </InputGroup>
-        </Form.Group>
-      </Stack>
-    </>
+    <Form.Group controlId="statement-csv">
+      <Form.Label><b>Step 1.</b> Upload your credit card statement</Form.Label>
+      <InputGroup >
+        <Form.Control ref={fileInputRef} type='file' accept='.csv, text/csv' onChange={(e) => setInputFiles(e.target.files)} />
+        {inputFiles && inputFiles.length ? <Button variant='primary' onClick={handleUpload}>Upload</Button> : <Button variant='outline-secondary' disabled>Upload</Button>}
+      </InputGroup>
+    </Form.Group>
   )
 }
