@@ -1,8 +1,11 @@
 import React from 'react'
 import Transaction from './Transaction'
 import { randomUUID } from '../utils/helpers'
+import { useApp } from '../state/context/Context'
 
-export default function TransactionList({ transactions, setTransactions }) {
+export default function TransactionList() {
+  const { transactions, setTransactions } = useApp();
+
   return (
     <div className='transaction-list d-flex flex-column gap-1'>
       {transactions.length ? (

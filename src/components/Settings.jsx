@@ -1,16 +1,14 @@
-import React, { useState, useReducer } from 'react'
+import React, { useState, useReducer, useContext } from 'react'
 import { FloatingLabel, Form, InputGroup, Offcanvas, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import matcherReducer from '../state/reducers/matcherReducer.js';
 import { initMatchers } from '../state/init/initMatchers.js';
 import { renderTooltip } from '../utils/tooltip.jsx';
+import { useApp } from '../state/context/Context.jsx';
 import TextMatcher from './TextMatcher.jsx';
 
 export default function Settings({ showSettings, handleHideSettings }) {
-  /* Data State */
-  const [ textMatchers, matcherDispatch ] = useReducer(matcherReducer, initMatchers);
-  const [ dates, setDates ] = useState({ start: '', end: '' });
+  const { settings: { dates, setDates, textMatchers, matcherDispatch }} = useApp();
 
-  /* Data State Handlers */
   const handleDateChange = e => setDates(currentDates => { 
     return { ...currentDates, [e.target.name]: e.target.value }
   });

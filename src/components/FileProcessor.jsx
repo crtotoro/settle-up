@@ -3,14 +3,15 @@ import { InputGroup, Button, Form, Stack, Col } from 'react-bootstrap';
 import Papa from 'papaparse';
 import moment from 'moment';
 import { isAfterGivenDate, isMatch } from '../utils/helpers';
+import { useApp } from '../state/context/Context';
 
 
 
 const initExcludeColumns = ["Post Date", "Category", "Type", "Memo"];
 
 
-export default function FileProcessor({ setTransactions }) {
-  const [ config, setConfig ] = useState({ excludeColumns: [...initExcludeColumns] })
+export default function FileProcessor() {
+  const { setTransactions } = useApp();
 
   const [inputFiles, setInputFiles] = useState(null);
   const [file, setFile] = useState(null);
