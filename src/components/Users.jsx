@@ -1,10 +1,10 @@
 import React from 'react'
-import { FloatingLabel, Form, InputGroup } from 'react-bootstrap'
+import { Col, Form, InputGroup, OverlayTrigger } from 'react-bootstrap'
 import InputGroupText from 'react-bootstrap/esm/InputGroupText'
 
 export default function Users() {
   return (
-    <Form.Group className='participants-form'>
+    <Form.Group id='participants-form' className='py-3'>
       <Form.Label><b>Step 2.</b> Who is splitting the expenses?</Form.Label>
       <div className='participants d-flex gap-2'>
         <InputGroup id='participant1' label='Primary'>

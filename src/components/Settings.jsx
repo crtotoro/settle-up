@@ -2,6 +2,7 @@ import React, { useState, useReducer } from 'react'
 import { FloatingLabel, Form, InputGroup, Offcanvas, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import matcherReducer from '../state/reducers/matcherReducer.js';
 import { initMatchers } from '../state/init/initMatchers.js';
+import { renderTooltip } from '../utils/tooltip.jsx';
 import TextMatcher from './TextMatcher.jsx';
 
 export default function Settings({ showSettings, handleHideSettings }) {
@@ -13,14 +14,9 @@ export default function Settings({ showSettings, handleHideSettings }) {
   const handleDateChange = e => setDates(currentDates => { 
     return { ...currentDates, [e.target.name]: e.target.value }
   });
-
-  /* Tooltips */
-  const renderTooltip = (props, id, text) => (
-    <Tooltip id={id} {...props}>{text}</Tooltip>
-  );
   
   return (
-    <Offcanvas show={showSettings} onHide={handleHideSettings} placement='end'>
+    <Offcanvas show={showSettings} onHide={handleHideSettings} placement='end' className='bg-gray'>
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Transaction Settings</Offcanvas.Title>
       </Offcanvas.Header>

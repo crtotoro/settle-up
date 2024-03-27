@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { InputGroup, Button, Form, Stack } from 'react-bootstrap';
+import { InputGroup, Button, Form, Stack, Col } from 'react-bootstrap';
 import Papa from 'papaparse';
 import moment from 'moment';
 import { isAfterGivenDate, isMatch } from '../utils/helpers';
@@ -43,7 +43,7 @@ export default function FileProcessor({ setTransactions }) {
   useEffect(() => {file && console.log("File uploaded:", file.name)},[file]);
 
   return (
-    <Form.Group controlId="statement-csv">
+    <Form.Group controlId='statement-csv' className='py-3'>
       <Form.Label><b>Step 1.</b> Upload your credit card statement</Form.Label>
       <InputGroup >
         <Form.Control ref={fileInputRef} type='file' accept='.csv, text/csv' onChange={(e) => setInputFiles(e.target.files)} />

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import FileProcessor from './FileProcessor';
 import TransactionList from './TransactionList';
-import { Stack } from 'react-bootstrap';
+import { Col, Container, Row, Stack } from 'react-bootstrap';
 import Users from './Users';
 import LaunchSettings from './LaunchSettings';
 
@@ -17,11 +17,19 @@ function App() {
         <h1>Settle Up</h1>
         <p>Split finances made easy</p>
       </div>
-      <Stack direction='horizontal' gap={3}>
-        <FileProcessor {...processorProps} />
-        <Users />
-        <LaunchSettings />
-      </Stack>
+      <Container fluid>
+        <Row>
+          <Col md='auto'>
+            <FileProcessor {...processorProps} />
+          </Col>
+          <Col md={5}>
+            <Users />
+          </Col>
+          <Col>
+            <LaunchSettings />
+          </Col>
+        </Row>
+      </Container>
       <TransactionList {...transactionListProps} />
     </div>
   )
