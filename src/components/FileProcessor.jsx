@@ -11,14 +11,22 @@ const initExcludeColumns = ["Post Date", "Category", "Type", "Memo"];
 
 
 export default function FileProcessor() {
-  const { setTransactions } = useApp();
-
+  const { setTransactions, participants, setParticipants } = useApp();
   const [inputFiles, setInputFiles] = useState(null);
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
+  
+  const getOrDefault = () => {
+    return Object.keys(participants) // for key in participants (p1 and p2) 
+      .reduce((acc, key) => 
+        participants[key]  // if the value is isn't empty
+        ? { ...acc, [key]: participants[key] }  // keep the value
+        : { ...acc, [key]: `Participant ${key[1]}` }, {}) // else assign default value of Participant 1 or 2
+  }
 
   const handleUpload = () => {
     if(inputFiles && inputFiles.length) {
+      setParticipants(getOrDefault());
       setFile(inputFiles[0]);
       setInputFiles(null);
       fileInputRef.current.value = "";

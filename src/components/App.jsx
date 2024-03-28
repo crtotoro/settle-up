@@ -2,7 +2,7 @@ import { useState } from 'react';
 import FileProcessor from './FileProcessor';
 import TransactionList from './TransactionList';
 import { Col, Container, Row, Stack } from 'react-bootstrap';
-import Users from './Users';
+import Participants from './Participants';
 import LaunchSettings from './LaunchSettings';
 import { AppProvider } from '../state/context/Context';
 
@@ -20,7 +20,7 @@ function App() {
               <FileProcessor />
             </Col>
             <Col md={5}>
-              <Users />
+              <Participants />
             </Col>
             <Col>
               <LaunchSettings />

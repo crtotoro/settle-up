@@ -7,7 +7,10 @@ import { useApp } from '../state/context/Context.jsx';
 import TextMatcher from './TextMatcher.jsx';
 
 export default function Settings({ showSettings, handleHideSettings }) {
-  const { settings: { dates, setDates, textMatchers, matcherDispatch }} = useApp();
+  const { 
+    settings: { dates, setDates, textMatchers, matcherDispatch }, 
+    participants: { p1, p2 }
+  } = useApp();
 
   const handleDateChange = e => setDates(currentDates => { 
     return { ...currentDates, [e.target.name]: e.target.value }

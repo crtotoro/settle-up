@@ -13,11 +13,15 @@ export const AppProvider = ({ children }) => {
   const [ textMatchers, matcherDispatch ] = useReducer(matcherReducer, initMatchers);
   const [ dates, setDates ] = useState({ start: '', end: '' });
   const [ settings, setSettings ] = useState({ textMatchers, matcherDispatch, dates, setDates });
-  const [ participants, setParticipants ] = useState({ p1: 'Participant 1', p2: 'Participant 2' }); // continue here
+  const [ participants, setParticipants ] = useState({ p1: '', p2: '' }); 
 
   return (
-    <AppContext.Provider value={{ transactions, setTransactions, settings }}>
+    <AppContext.Provider value={{ transactions, setTransactions, settings, participants, setParticipants }}>
       {children}
     </AppContext.Provider>
   );
 }
+
+export const handleFieldChange = (e, setter) => 
+setter((current) => 
+  ({ ...current, [e.target.name]: e.target.value }));
