@@ -7,10 +7,8 @@ import { useApp } from '../state/context/Context.jsx';
 import TextMatcher from './TextMatcher.jsx';
 
 export default function Settings({ showSettings, handleHideSettings }) {
-  const { 
-    settings: { dates, setDates, textMatchers, matcherDispatch }, 
-    participants: { p1, p2 }
-  } = useApp();
+  const { settings, participants } = useApp();
+  const { dates, setDates, textMatchers, matcherDispatch, defaultPayor, setDefaultPayor } = settings;
 
   const handleDateChange = e => setDates(currentDates => { 
     return { ...currentDates, [e.target.name]: e.target.value }
@@ -59,9 +57,9 @@ export default function Settings({ showSettings, handleHideSettings }) {
             <Form.Label>Settlement Assumptions</Form.Label>
             <Form.Group className='col-12 mb-2'>
               <FloatingLabel controlId='default-payor' label='Original payor'>
-                <Form.Select>
-                  <option value={1}>Participant1</option>
-                  <option value={2}>Participant2</option>
+                <Form.Select value={defaultPayor} onChange={(e) => setDefaultPayor(e.target.value)}>
+                  <option value='p1'>Participant1</option>
+                  <option value='p2'>Participant2</option>
                 </Form.Select>
               </FloatingLabel>
             </Form.Group>

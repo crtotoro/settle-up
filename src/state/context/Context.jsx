@@ -12,7 +12,8 @@ export const AppProvider = ({ children }) => {
   const [ transactions, setTransactions ] = useState([]);
   const [ textMatchers, matcherDispatch ] = useReducer(matcherReducer, initMatchers);
   const [ dates, setDates ] = useState({ start: '', end: '' });
-  const [ settings, setSettings ] = useState({ textMatchers, matcherDispatch, dates, setDates });
+  const [ defaultPayor, setDefaultPayor ] = useState('p1');
+  const [ settings, setSettings ] = useState({ textMatchers, matcherDispatch, dates, setDates, defaultPayor, setDefaultPayor });
   const [ participants, setParticipants ] = useState({ p1: '', p2: '' }); 
 
   return (
