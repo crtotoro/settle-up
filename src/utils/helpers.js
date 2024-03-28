@@ -20,3 +20,12 @@ export function randomUUID() {
   });
 }
 
+export const startDateReducer = (startDate, transaction) => {
+  const date = transaction["Post Date"];
+  return startDate === '' || Date.parse(date) < Date.parse(startDate) ? date : startDate;  
+}
+
+export const endDateReducer = (endDate, transaction) => {
+  const date = transaction["Post Date"];
+  return endDate === '' || Date.parse(date) > Date.parse(endDate) ? date : endDate;  
+}
