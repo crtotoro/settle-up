@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Accordion, FloatingLabel, InputGroup, Form, Button } from 'react-bootstrap'
 import { toTitle } from '../utils/helpers'
 import MatcherList from './MatcherList';
+import { useApp } from '../state/context/Context';
 
-export default function TextMatcher({ type, matchers, matcherDispatch }) {
+export default function TextMatcher({ type, matchers }) {
+  const { matcherDispatch } = useApp();
   const matcherListProps = { type, matchers, matcherDispatch };
   const titleType = toTitle(type);
   const [ newMatcherText, setNewMatcherText ] = useState('');

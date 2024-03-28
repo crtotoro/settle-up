@@ -1,5 +1,3 @@
-import { Tooltip } from "react-bootstrap";
-
 export const isAfterGivenDate = (dateStr, afterDate) => {
   const date = moment(dateStr, "MM/DD/YYYY");
   return date.isAfter(afterDate);

@@ -37,8 +37,7 @@ export default App
 
 /*
  * TODO:
- *    - Fix state in the useContext to split settings into individual parts or turn it into a single useState managing an object
- *        - consider useReducer for settings
+ *    - 
  *
  *
  *

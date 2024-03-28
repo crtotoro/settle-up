@@ -7,8 +7,7 @@ import { useApp } from '../state/context/Context.jsx';
 import TextMatcher from './TextMatcher.jsx';
 
 export default function Settings({ showSettings, handleHideSettings }) {
-  const { settings, participants } = useApp();
-  const { dates, setDates, textMatchers, matcherDispatch, defaultPayor, setDefaultPayor } = settings;
+  const { dates, setDates, textMatchers, matcherDispatch, defaultPayor, setDefaultPayor, participants } = useApp();
 
   const handleDateChange = e => setDates(currentDates => { 
     return { ...currentDates, [e.target.name]: e.target.value }
@@ -42,7 +41,6 @@ export default function Settings({ showSettings, handleHideSettings }) {
                 key={textMatchers[key].type} 
                 type={textMatchers[key].type} 
                 matchers={textMatchers[key].matchers}
-                matcherDispatch={matcherDispatch} 
               />)}
             <Form.Group className='col-12 mb-2'>
               <InputGroup>
