@@ -5,6 +5,7 @@ import { Col, Container, Row, Stack } from 'react-bootstrap';
 import Participants from './Participants';
 import LaunchSettings from './LaunchSettings';
 import { AppProvider } from '../state/context/Context';
+import TransactionsHeader from './TransactionsHeader';
 
 function App() {  
   return (
@@ -14,20 +15,23 @@ function App() {
           <h1>Settle Up</h1>
           <p>Split finances made easy</p>
         </div>
-        <Container fluid>
+        <Container fluid className='inputs-container'>
           <Row>
-            <Col md='auto'>
+            <Col lg={4}>
               <FileProcessor />
             </Col>
-            <Col md={5}>
+            <Col lg={5}>
               <Participants />
             </Col>
-            <Col>
+            <Col lg={3}>
               <LaunchSettings />
             </Col>
           </Row>
         </Container>
-        <TransactionList />
+        <Container fluid className='transactions-container'>
+          <TransactionsHeader />
+          <TransactionList />
+        </Container>
       </div>
     </AppProvider>
   )

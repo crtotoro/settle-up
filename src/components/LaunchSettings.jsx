@@ -9,7 +9,7 @@ export default function LaunchSettings() {
   const settingsProps = { showSettings, handleHideSettings };
 
   return (
-    <Form.Group className='py-3' >
+    <Form.Group className='py-3 d-flex flex-column' >
       <Form.Label><b>Step 3.</b> Customize to save time</Form.Label>
       <Button variant='outline-secondary' onClick={handleShowSettings}>Transaction Settings</Button>
       <Settings {...settingsProps} />
