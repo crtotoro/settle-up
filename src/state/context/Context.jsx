@@ -14,6 +14,7 @@ export const AppProvider = ({ children }) => {
   const [ dates, setDates ] = useState({ start: '', end: '' });
   const [ defaultPayor, setDefaultPayor ] = useState('p1');
   const [ participants, setParticipants ] = useState({ p1: '', p2: '' }); 
+  const [ isLoading, setIsLoading ] = useState(false);
 
   return (
     <AppContext.Provider value={{ 
@@ -21,7 +22,8 @@ export const AppProvider = ({ children }) => {
       textMatchers, matcherDispatch, 
       dates, setDates, 
       defaultPayor, setDefaultPayor,
-      participants, setParticipants 
+      participants, setParticipants,
+      isLoading, setIsLoading 
     }}>
       {children}
     </AppContext.Provider>

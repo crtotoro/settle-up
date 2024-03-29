@@ -27,8 +27,10 @@ const initVerify = [
   'amzn mktp',
   'red raccoon'
 ];
-
-const initExclude = [];
+const initExclude = [
+  'automatic payment',
+  'payment thank you'
+];
 
 const mapInitMatchers = matchers => {
   return matchers.map(matcher => ({ id: randomUUID(), text: matcher }));

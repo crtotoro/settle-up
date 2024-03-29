@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import FileProcessor from './FileProcessor';
+import UploadFile from './UploadFile';
 import TransactionList from './TransactionList';
-import { Col, Container, Row, Stack } from 'react-bootstrap';
+import { Col, Container, Row, Spinner, Stack } from 'react-bootstrap';
 import Participants from './Participants';
 import LaunchSettings from './LaunchSettings';
 import { AppProvider } from '../state/context/Context';
 import TransactionsHeader from './TransactionsHeader';
+import TransactionsDashboard from './TransactionsDashboard';
 
 function App() {  
   return (
@@ -18,7 +19,7 @@ function App() {
         <Container fluid className='inputs-container'>
           <Row>
             <Col lg={4}>
-              <FileProcessor />
+              <UploadFile />
             </Col>
             <Col lg={5}>
               <Participants />
@@ -28,10 +29,7 @@ function App() {
             </Col>
           </Row>
         </Container>
-        <Container fluid className='transactions-container'>
-          <TransactionsHeader />
-          <TransactionList />
-        </Container>
+        <TransactionsDashboard />
       </div>
     </AppProvider>
   )
@@ -41,9 +39,19 @@ export default App
 
 /*
  * TODO:
- *    - 
- *
- *
+ *    - (IN PROGRESS) Position loading spinner then remove setInterval from promise
+ *    - Move init matchers into config file
+ *    - Manual transaction entry
+ *    - Render transaction list for each category: Verify, Included, Excluded 
+ *    - Transaction controls:
+ *      - Mass modify category
+ *      - Mass modify payor
+ *      - Mass modify split
+ *      - Sorting
+ * 
+ * STRETCH:
+ *    - Transaction drag and drop for re-order and re-categorize
+ *      - Add manual order state to make changes persistent across sorts/filters
  *
  *
  */
