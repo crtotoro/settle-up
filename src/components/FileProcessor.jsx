@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { InputGroup, Button, Form, Stack, Col } from 'react-bootstrap';
+import { InputGroup, Button, Form } from 'react-bootstrap';
 import Papa from 'papaparse';
 import moment from 'moment';
-import { isAfterGivenDate, isMatch } from '../utils/helpers';
+import { randomUUID } from '../utils/helpers';
 import { useApp } from '../state/context/Context';
-
-
 
 const initExcludeColumns = ["Post Date", "Category", "Type", "Memo"];
 
@@ -38,7 +36,10 @@ export default function FileProcessor() {
       Papa.parse(file, {
         header: true,
         complete: function(results) {
-          setTransactions(results.data);
+          setTransactions(results.data
+            .filter(transaction => transaction["Description"])
+            .map(transaction => ({...transaction, id: randomUUID()}))
+          );
         },
         error: function(err) {
           console.error("Parse error:", err);
