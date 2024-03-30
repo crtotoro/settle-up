@@ -19,13 +19,13 @@ export default function useFileParser() {
               complete: results => resolve(results.data),
               error: err => reject(err),
             });
-          }, 3000);
+          }, 314);
         });
 
         if(isMounted) {
           const transactions = result
-            .filter(transaction => transaction["Description"])
-            .map(transaction => ({...transaction, id: randomUUID()}))
+            .filter(transaction => transaction["Description"] && transaction["Amount"] < 0) // exclude empty rows and credit card payments
+            .map(transaction => ({...transaction, "Amount": -1 * transaction["Amount"], id: randomUUID()})); // invert amounts to be positive
           setTransactions(transactions);
         }
       } catch(err) {

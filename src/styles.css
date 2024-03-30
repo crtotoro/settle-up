@@ -23,7 +23,10 @@
 }
 
 .loading {
-  transform: scale(200%);
+  position: fixed;
+  top: calc(50% - 5rem);
+  left: calc(50% - 5rem);
+  /* transform: scale(200%); */
 }
 
 /*--- Bootstrap Overrides ---*/ 
@@ -41,4 +44,10 @@
   border-top: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.transactions-container > .spinner-border {
+  --bs-spinner-width: 10rem;
+  --bs-spinner-height: 10rem;
+  --bs-spinner-border-width: .314em;
 }
