@@ -1,10 +1,9 @@
 import Papa from 'papaparse';
 import { useState, useEffect } from 'react';
 import { useApp } from '../state/context/Context';
-import { randomUUID } from '../utils/helpers';
 
 export default function useFileParser() {
-  const { setTransactions, setIsLoading } = useApp();
+  const { transactionDispatch, setIsLoading } = useApp();
   const [ fileToParse, setFileToParse ] = useState();
 
   useEffect(() => {
@@ -12,7 +11,7 @@ export default function useFileParser() {
     
     const parseFile = async (file) => {
       try {
-        const result = await new Promise((resolve, reject) => {
+        const parsedTransactions = await new Promise((resolve, reject) => {
           setInterval(() => {
             Papa.parse(file, {
               header: true,
@@ -23,10 +22,7 @@ export default function useFileParser() {
         });
 
         if(isMounted) {
-          const transactions = result
-            .filter(transaction => transaction["Description"] && transaction["Amount"] < 0) // exclude empty rows and credit card payments
-            .map(transaction => ({...transaction, "Amount": -1 * transaction["Amount"], id: randomUUID()})); // invert amounts to be positive
-          setTransactions(transactions);
+          transactionDispatch({ type: 'SET_TRANSACTIONS', payload: parsedTransactions });
         }
       } catch(err) {
         console.error("Parse error:", err);
