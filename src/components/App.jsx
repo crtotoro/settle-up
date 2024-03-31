@@ -20,16 +20,15 @@ export default App
 
 /*
  * TODO:
- *    - (IN PROGRESS) Position loading spinner then remove setInterval from promise
- *    - Move init matchers into config file
- *    - Manual transaction entry
  *    - Render transaction list for each category: Verify, Included, Excluded 
+ *    - Manual transaction entry
  *    - Transaction controls:
  *      - Mass modify category
  *      - Mass modify payor
  *      - Mass modify split
  *      - Sorting
  *    - Input label text 1&2 drop to newline from 992-1200px 
+ *    - Move init matchers into config file
  * STRETCH:
  *    - Transaction drag and drop for re-order and re-categorize
  *      - Add manual order state to make changes persistent across sorts/filters

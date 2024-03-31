@@ -19,7 +19,7 @@ export default function useFileParser() {
               complete: results => resolve(results.data),
               error: err => reject(err),
             });
-          }, 314);
+          }, 600);
         });
 
         if(isMounted) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import Settings from './Settings';
+import SettingsDrawer from './SettingsDrawer';
 
 export default function LaunchSettings() {
   const [ showSettings, setShowSettings ] = useState(false);
@@ -12,7 +12,7 @@ export default function LaunchSettings() {
     <Form.Group className='py-3 d-flex flex-column' >
       <Form.Label><b>Step 3.</b> Customize to save time</Form.Label>
       <Button variant='outline-secondary' onClick={handleShowSettings}>Transaction Settings</Button>
-      <Settings {...settingsProps} />
+      <SettingsDrawer {...settingsProps} />
     </Form.Group>
   )
 }

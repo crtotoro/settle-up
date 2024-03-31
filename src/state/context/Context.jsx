@@ -16,11 +16,15 @@ export const AppProvider = ({ children }) => {
   const [ participants, setParticipants ] = useState({ p1: '', p2: '' }); 
   const [ isLoading, setIsLoading ] = useState(false);
 
+  const handleDateChange = e => setDates(currentDates => {
+    return { ...currentDates, [e.target.name]: e.target.value };
+  });
+
   return (
     <AppContext.Provider value={{ 
       transactions, setTransactions, 
       textMatchers, matcherDispatch, 
-      dates, setDates, 
+      dates, handleDateChange, 
       defaultPayor, setDefaultPayor,
       participants, setParticipants,
       isLoading, setIsLoading 
