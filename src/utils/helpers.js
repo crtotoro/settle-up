@@ -29,3 +29,9 @@ export const endDateReducer = (endDate, transaction) => {
   const date = transaction["Post Date"];
   return endDate === '' || Date.parse(date) > Date.parse(endDate) ? date : endDate;  
 }
+
+export const totalAmountReducer = (total, transaction) => {
+  if(transaction["Amount"])
+    return total += transaction["Amount"]
+  else return total += 0
+}

@@ -20,7 +20,8 @@ export default App
 
 /*
  * TODO:
- *    - Render transaction list for each category: Verify, Included, Excluded 
+ *    - Handle other matchers (min amount and dates)
+ *    - add control to hide categories (toggle isCategorized)
  *    - Manual transaction entry
  *    - Transaction controls:
  *      - Mass modify category
