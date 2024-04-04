@@ -37,7 +37,7 @@ const mapInitMatchers = matchers => {
 }
 
 export const initMatchers = { 
-  include: { type: "include", matchers: mapInitMatchers(initInclude) }, 
-  exclude: { type: "exclude", matchers: mapInitMatchers(initExclude) }, 
-  verify: { type: "verify", matchers: mapInitMatchers(initVerify) }
+  include: mapInitMatchers(initInclude), 
+  exclude: mapInitMatchers(initExclude), 
+  verify: mapInitMatchers(initVerify)
 };

@@ -9,11 +9,11 @@ export default function MatcherSettings() {
   return (
     <div id='matchers' className='settings-group p-2 row'>
       <Form.Label>Transaction Matchers</Form.Label>
-      {Object.keys(textMatchers).map(key => 
+      {Object.keys(textMatchers).map(type => 
         <TextMatcher 
-          key={textMatchers[key].type} 
-          type={textMatchers[key].type} 
-          matchers={textMatchers[key].matchers}
+          key={type} 
+          type={type} 
+          matchers={textMatchers[type]}
         />)}
       <Form.Group className='col-12 mb-2'>
         <InputGroup>

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useApp } from '../state/context/Context';
 
 export default function useFileParser() {
-  const { transactionDispatch, setIsLoading } = useApp();
+  const { transactionDispatch, setIsLoading, textMatchers } = useApp();
   const [ fileToParse, setFileToParse ] = useState();
 
   useEffect(() => {
@@ -22,7 +22,10 @@ export default function useFileParser() {
         });
 
         if(isMounted) {
-          transactionDispatch({ type: 'SET_TRANSACTIONS', payload: parsedTransactions });
+          transactionDispatch({ type: 'SET_TRANSACTIONS', payload: {
+            transactions: parsedTransactions,
+            context: { textMatchers } 
+          }});
         }
       } catch(err) {
         console.error("Parse error:", err);

@@ -8,7 +8,7 @@ export function isMatch(value, matchers) {
     return false;
   }
   const lowercasedValue = value.toLowerCase();
-  return matchers.some(matcher => lowercasedValue.includes(matcher));
+  return matchers.some(matcher => lowercasedValue.includes(matcher.text));
 }
 
 export const toTitle = text => text[0].toUpperCase() + text.slice(1); 
