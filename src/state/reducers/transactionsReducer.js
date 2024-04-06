@@ -1,7 +1,7 @@
-import { isMatch, randomUUID } from "../../utils/helpers";
+import { exceedsMin, isMatch, randomUUID } from "../../utils/helpers";
 
 export default function transactionsReducer(state, action) {
-  const { textMatchers } = action.payload.context;
+  const { textMatchers, minAmount } = action.payload.context;
   switch(action.type) {
     // run on new file upload
     case 'SET_TRANSACTIONS': {
@@ -16,6 +16,8 @@ export default function transactionsReducer(state, action) {
             return {...transaction, status: 'include'};
           else if(isMatch(desc, textMatchers.exclude))
             return {...transaction, status: 'exclude'};
+          else if(exceedsMin(transaction["Amount"], minAmount))
+            return {...transaction, status: 'verify'};
           else return transaction
         })
       return transactions;
@@ -26,7 +28,20 @@ export default function transactionsReducer(state, action) {
     }
     // run this after updating matcher filters
     case 'APPLY_NEW_FILTERS': {
-      return state;
+      const transactions = action.payload.transactions
+        .map(transaction => {
+          const desc = transaction["Description"];
+          if(isMatch(desc, textMatchers.verify)) 
+            return {...transaction, status: 'verify'};
+          else if(isMatch(desc, textMatchers.include))
+            return {...transaction, status: 'include'};
+          else if(isMatch(desc, textMatchers.exclude))
+            return {...transaction, status: 'exclude'};
+          else if(exceedsMin(transaction["Amount"], minAmount))
+            return {...transaction, status: 'verify'};
+          else return transaction
+        })
+      return transactions;
     }
     default: {
       return state;

@@ -35,3 +35,5 @@ export const totalAmountReducer = (total, transaction) => {
     return total += transaction["Amount"]
   else return total += 0
 }
+
+export const exceedsMin = (amount, minAmount) => minAmount && amount >= minAmount;

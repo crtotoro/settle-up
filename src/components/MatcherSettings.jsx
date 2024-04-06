@@ -1,7 +1,8 @@
 import React from 'react'
-import { FloatingLabel, Form, InputGroup } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import TextMatcher from './TextMatcher'
 import { useApp } from '../state/context/Context'
+import AmountMatcher from './AmountMatcher';
 
 export default function MatcherSettings() {
   const { textMatchers } = useApp();
@@ -15,14 +16,7 @@ export default function MatcherSettings() {
           type={type} 
           matchers={textMatchers[type]}
         />)}
-      <Form.Group className='col-12 mb-2'>
-        <InputGroup>
-          <InputGroup.Text>$</InputGroup.Text>
-          <FloatingLabel controlId='verify-amount-matcher' label='Verify minimum amount'>
-            <Form.Control type="number" name="verify-amount" min='0' step='5' placeholder='Amount...'/>
-          </FloatingLabel>
-        </InputGroup>
-      </Form.Group>
+      <AmountMatcher />
     </div>
   )
 }

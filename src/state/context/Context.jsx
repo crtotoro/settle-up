@@ -16,15 +16,17 @@ export const AppProvider = ({ children }) => {
   const [ defaultPayor, setDefaultPayor ] = useState('p1');
   const [ participants, setParticipants ] = useState({ p1: '', p2: '' }); 
   const [ isLoading, setIsLoading ] = useState(false);
+  const [ minAmount, setMinAmount ] = useState(Infinity);
 
   return (
     <AppContext.Provider value={{ 
       transactions, transactionDispatch, 
       textMatchers, matcherDispatch, 
+      minAmount, setMinAmount,
       dates, setDates, 
       defaultPayor, setDefaultPayor,
       participants, setParticipants,
-      isLoading, setIsLoading 
+      isLoading, setIsLoading
     }}>
       {children}
     </AppContext.Provider>
