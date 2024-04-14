@@ -1,5 +1,5 @@
-import { AppProvider } from '../state/context/Context';
-import Transactions from './Transactions';
+import { AppProvider } from '../../state/context/Context';
+import Transactions from '../transactions/Transactions';
 import Inputs from './Inputs';
 import Header from './Header';
 import { Container } from 'react-bootstrap';

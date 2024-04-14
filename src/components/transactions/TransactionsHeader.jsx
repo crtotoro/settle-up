@@ -1,6 +1,6 @@
 import React from 'react'
-import { useApp } from '../state/context/Context'
-import { startDateReducer, endDateReducer, totalAmountReducer } from '../utils/helpers';
+import { useApp } from '../../state/context/Context'
+import { startDateReducer, endDateReducer, totalAmountReducer } from '../../utils/helpers';
 
 export default function TransactionsHeader() {
   const { transactions } = useApp();

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Form } from 'react-bootstrap'
-import TextMatcher from './TextMatcher'
-import { useApp } from '../state/context/Context'
-import AmountMatcher from './AmountMatcher';
+import TextMatcher from './matchers/TextMatcher'
+import { useApp } from '../../state/context/Context'
+import AmountMatcher from './matchers/AmountMatcher';
 
 export default function MatcherSettings() {
   const { textMatchers } = useApp();

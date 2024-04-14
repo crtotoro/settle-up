@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Accordion, FloatingLabel, InputGroup, Form, Button } from 'react-bootstrap'
-import { toTitle } from '../utils/helpers'
+import { toTitle } from '../../../utils/helpers'
 import MatcherList from './MatcherList';
-import { useApp } from '../state/context/Context';
+import { useApp } from '../../../state/context/Context';
 
 export default function TextMatcher({ type, matchers }) {
   const { matcherDispatch } = useApp();

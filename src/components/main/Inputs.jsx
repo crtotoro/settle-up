@@ -2,7 +2,7 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import UploadFile from './UploadFile'
 import Participants from './Participants'
-import LaunchSettings from './LaunchSettings'
+import LaunchSettings from '../settings/LaunchSettings'
 
 export default function () {
   return (

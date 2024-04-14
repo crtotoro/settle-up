@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import SettingsDrawer from './SettingsDrawer';
-import { useApp } from '../state/context/Context';
+import { useApp } from '../../state/context/Context';
 
 export default function LaunchSettings() {
   const { transactions, transactionDispatch, textMatchers, minAmount } = useApp();

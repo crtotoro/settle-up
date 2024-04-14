@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { InputGroup, Button, Form } from 'react-bootstrap';
 import moment from 'moment';
-import { useApp } from '../state/context/Context';
-import useFileParser from '../hooks/useFileParser';
+import { useApp } from '../../state/context/Context';
+import useFileParser from '../../hooks/useFileParser';
 
 export default function UploadFile() {
   const { participants, setParticipants, isLoading, setIsLoading } = useApp();

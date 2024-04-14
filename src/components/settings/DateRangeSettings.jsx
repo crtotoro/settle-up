@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, OverlayTrigger } from 'react-bootstrap'
-import { renderTooltip } from '../utils/tooltip';
-import { handleFieldChange, useApp } from '../state/context/Context';
+import { renderTooltip } from '../../utils/tooltip';
+import { handleFieldChange, useApp } from '../../state/context/Context';
 
 export default function DateRangeSettings() {
   const { dates, setDates } = useApp(); 

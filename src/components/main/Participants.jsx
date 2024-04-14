@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Form, InputGroup, OverlayTrigger } from 'react-bootstrap'
 import InputGroupText from 'react-bootstrap/esm/InputGroupText'
-import { useApp, handleFieldChange } from '../state/context/Context'
+import { useApp, handleFieldChange } from '../../state/context/Context'
 
 export default function Participants() {
   const { participants, setParticipants } = useApp();

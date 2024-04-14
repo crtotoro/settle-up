@@ -1,5 +1,5 @@
 import React from 'react'
-import { useApp } from '../state/context/Context'
+import { useApp } from '../../state/context/Context'
 import { FloatingLabel, Form } from 'react-bootstrap';
 
 export default function SettlementSettings() {

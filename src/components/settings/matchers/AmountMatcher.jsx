@@ -1,6 +1,6 @@
 import React from 'react'
 import { FloatingLabel, Form, InputGroup } from 'react-bootstrap'
-import { useApp } from '../state/context/Context'
+import { useApp } from '../../../state/context/Context'
 
 export default function AmountMatcher() {
   const { minAmount, setMinAmount } = useApp();

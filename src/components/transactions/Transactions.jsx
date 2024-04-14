@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Spinner } from 'react-bootstrap'
-import { useApp } from '../state/context/Context'
+import { useApp } from '../../state/context/Context'
 import TransactionsHeader from './TransactionsHeader';
 import TransactionList from './TransactionList';
 
