@@ -4,14 +4,14 @@ import SettingsDrawer from './SettingsDrawer';
 import { useApp } from '../../state/context/Context';
 
 export default function LaunchSettings() {
-  const { transactions, transactionDispatch, textMatchers, minAmount } = useApp();
+  const { transactions, transactionDispatch, textMatchers, minAmount, dates } = useApp();
   const [ showSettings, setShowSettings ] = useState(false);
   const handleShowSettings = () => setShowSettings(true);
   const handleHideSettings = () => {
     setShowSettings(false)
     transactionDispatch({ type: 'APPLY_NEW_FILTERS', payload: {
       transactions,
-      context: { textMatchers, minAmount } 
+      context: { textMatchers, minAmount, dates } 
     }});
   };
   const settingsProps = { showSettings, handleHideSettings };
