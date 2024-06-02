@@ -35,9 +35,13 @@ export default function transactionsReducer(state, action) {
         });
       return transactions;
     }
-    // run this when modifying a single transaction from one status to another
-    case 'UPDATE_TRANSACTION_STATUS': {
-      return state;
+    // run this when modifying a single transaction's status, payor, etc. UNTESTED****
+    case 'UPDATE_SINGLE_TRANSACTION': {
+      return state.map(transaction => 
+        transaction.id === action.payload.id
+        ? { ...transaction, [action.payload.property]: action.payload.value }
+        : transaction
+      );
     }
     // run this after updating matcher filters
     case 'APPLY_NEW_FILTERS': {
