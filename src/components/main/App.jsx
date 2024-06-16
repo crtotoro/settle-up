@@ -20,7 +20,6 @@ export default App
 
 /*
  * TODO:
- *    - Handle other matchers (min amount and dates)
  *    - add control to hide categories (toggle isCategorized)
  *    - Manual transaction entry
  *    - Transaction controls:
