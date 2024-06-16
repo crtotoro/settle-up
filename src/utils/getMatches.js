@@ -18,7 +18,6 @@ afterDate is the date after which the process will match records. anything on or
 const confirmedMatchers = [
   'netflix', 
   'hulu',
-  'orkin  llc', 
   'town of normal', 
   'utility', 
   'frs decatur', 
@@ -29,7 +28,20 @@ const confirmedMatchers = [
   'prime video', 
   'lg cns',
   'prairie oak',
-  'amazon digit'
+  'amazon digit',
+  'chewy',
+  'orkin',
+  'vet hospital',
+  'pet hospital',
+  'amazon prime',
+  'rayne nutrition',
+  'samsclub',
+  'pet supplies',
+  'bellyrubs',
+  'petsmart',
+  'vetsource',
+  'weed man',
+  'uber trip' 
 ].map(val => val.toLowerCase());
 
 const verificationNeededMatchers = [
