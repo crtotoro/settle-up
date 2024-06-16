@@ -4,6 +4,16 @@ export default function transactionsReducer(state, action) {
   const { textMatchers, minAmount, dates } = action.payload.context;
   const shouldCheckDate = dates.start || dates.end;
 
+  /* Transaction object:
+  { 
+    id: uuid,
+    'Description': string,
+    'Amount': float,
+    'Post Date': string,
+    status: string
+  }
+  */
+
   switch(action.type) {
     // run on new file upload
     case 'SET_TRANSACTIONS': {
