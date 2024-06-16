@@ -1,7 +1,7 @@
 import { exceedsMin, isMatch, randomUUID, isExcludedByDate } from "../../utils/helpers";
 
 export default function transactionsReducer(state, action) {
-  const { textMatchers, minAmount, dates } = action.payload.context;
+  const { textMatchers, minAmount, dates, defaultPayor, participants } = action.payload.context;
   const shouldCheckDate = dates.start || dates.end;
 
   /* Transaction object:
@@ -17,7 +17,10 @@ export default function transactionsReducer(state, action) {
   switch(action.type) {
     // run on new file upload
     case 'SET_TRANSACTIONS': {
-      const allowedHeaders = ["Description", "Amount", "Post Date", "id", "status"];
+      const allowedHeaders = ["Description", "Amount", "Post Date", "id", "status", "payor"];
+      console.log("default payor:",defaultPayor)
+      console.log("participants:", participants)
+
       const transactions = action.payload.transactions
         .filter(transaction => transaction["Description"] && transaction["Amount"] < 0) // exclude empty rows and credit card payments
         .map(transaction => ({
@@ -26,6 +29,7 @@ export default function transactionsReducer(state, action) {
           id: randomUUID()}))  // assign unique id to transaction
         .map(transaction => {
           const desc = transaction["Description"];
+          const payor = participants[defaultPayor]; // set default payor
           let status = 'other'; // set default status
 
           // change status if applicable
@@ -42,7 +46,7 @@ export default function transactionsReducer(state, action) {
               status = 'verify';
           }
 
-          return {...transaction, status};
+          return {...transaction, status, payor};
         })
         .map(transaction => {
           return Object.fromEntries(Object.entries(transaction).filter(([key]) => allowedHeaders.includes(key)));
@@ -81,7 +85,7 @@ export default function transactionsReducer(state, action) {
           return {...transaction, status};
         })
       return transactions;
-    }
+    } 
     default: {
       return state;
     }
