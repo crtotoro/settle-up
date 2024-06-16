@@ -29,19 +29,7 @@ const confirmedMatchers = [
   'lg cns',
   'prairie oak',
   'amazon digit',
-  'chewy',
-  'orkin',
-  'vet hospital',
-  'pet hospital',
-  'amazon prime',
-  'rayne nutrition',
-  'samsclub',
-  'pet supplies',
-  'bellyrubs',
-  'petsmart',
-  'vetsource',
-  'weed man',
-  'uber trip' 
+  'chewy'
 ].map(val => val.toLowerCase());
 
 const verificationNeededMatchers = [

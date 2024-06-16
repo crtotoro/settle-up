@@ -3,7 +3,6 @@ import { randomUUID } from "../../utils/helpers";
 const initInclude = [
   'netflix', 
   'hulu',
-  'orkin  llc', 
   'town of normal', 
   'utility', 
   'frs decatur', 
@@ -15,7 +14,19 @@ const initInclude = [
   'lg cns',
   'prairie oak',
   'amazon digit',
-  'chewy'
+  'chewy',
+  'orkin',
+  'vet hospital',
+  'pet hospital',
+  'amazon prime',
+  'rayne nutrition',
+  'samsclub',
+  'pet supplies',
+  'bellyrubs',
+  'petsmart',
+  'vetsource',
+  'weed man',
+  'uber trip' 
 ];
 const initVerify = [
   'amazon.com', 
