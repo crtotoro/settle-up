@@ -15,7 +15,7 @@ export default function Transactions() {
           <span className='visually-hidden'>Loading...</span>
         </Spinner> 
       : <>
-          <TransactionsHeader />
+          <TransactionsHeader transactions={transactions} />
           {!isCategorized
           ? <TransactionList transactions={transactions} category={'All'} />
           : <>
