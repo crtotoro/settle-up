@@ -17,6 +17,7 @@ export default function transactionsReducer(state, action) {
   switch(action.type) {
     // run on new file upload
     case 'SET_TRANSACTIONS': {
+      const allowedHeaders = ["Description", "Amount", "Post Date", "id", "status"];
       const transactions = action.payload.transactions
         .filter(transaction => transaction["Description"] && transaction["Amount"] < 0) // exclude empty rows and credit card payments
         .map(transaction => ({
@@ -42,6 +43,9 @@ export default function transactionsReducer(state, action) {
           }
 
           return {...transaction, status};
+        })
+        .map(transaction => {
+          return Object.fromEntries(Object.entries(transaction).filter(([key]) => allowedHeaders.includes(key)));
         });
       return transactions;
     }

@@ -9,6 +9,17 @@ export default function () {
   const { transactions } = useApp();
   const exportLinkRef = useRef(null);
 
+  const filterTransactions = (data) => {
+    return data.filter(transaction => ['verify', 'include'].includes(transaction['status'])).sort((a,b) => {
+      const [monthA, dayA, yearA] = a["Post Date"].split("/").map(Number);
+      const [monthB, dayB, yearB] = b["Post Date"].split("/").map(Number);
+
+      if (yearA !== yearB) return yearA - yearB;
+      if (monthA !== monthB) return monthA - monthB;
+      return dayA - dayB;
+    });
+  }
+
   const arrayToCSV = (data) => {
     const headers = Object.keys(data[0]);
     const rows = data.map(obj => headers.map(header => obj[header]));
@@ -25,7 +36,8 @@ export default function () {
   };
 
   const handleExport = () => {
-    const csv = arrayToCSV(transactions);
+    const filteredTransactions = filterTransactions(transactions);
+    const csv = arrayToCSV(filteredTransactions);
     const filename = `settle-up_${new Date().toISOString().slice(0, 10)}.csv`;
     downloadCSV(csv, filename);
   }
