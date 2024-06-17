@@ -1,19 +1,15 @@
 import React from 'react'
-import { useApp } from '../../state/context/Context'
-import { startDateReducer, endDateReducer, totalAmountReducer } from '../../utils/helpers';
 import TransactionStats from './TransactionStats';
 
-export default function TransactionsHeader() {
-  const { transactions } = useApp();
-
+export default function TransactionsHeader({ category, transactions, isPrimary }) {
   return (
-    <>
+    <div className={`transactions-header ${!isPrimary ? categoryq : ''}`}>
       {transactions.length ? (
         <>
-          <h2>Transactions</h2>
+          {isPrimary ? <h2>Transactions</h2> : <h4>{category} Transactions</h4>}
           <TransactionStats transactions={transactions} />
         </>
-      ) : 'Upload a statement to get started...'}
-    </>
-  )
+      ) : <p>Upload a statement to get started...</p>}
+    </div>
+  ) 
 }
