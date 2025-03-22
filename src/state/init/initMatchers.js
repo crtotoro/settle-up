@@ -26,7 +26,13 @@ const initInclude = [
   'petsmart',
   'vetsource',
   'weed man',
-  'uber trip' 
+  'uber trip',
+  'lg electronics',
+  'k-9 country club',
+  'regain.us',
+  'pawpad',
+  'pawtree',
+  'sams club renewal' 
 ];
 const initVerify = [
   'amazon.com', 
@@ -36,11 +42,13 @@ const initVerify = [
   'american air', 
   'lowes', 
   'amzn mktp',
+  'amazon mktpl',
   'red raccoon'
 ];
 const initExclude = [
   'automatic payment',
-  'payment thank you'
+  'payment thank you',
+  'betterhelp'
 ];
 
 const mapInitMatchers = matchers => {

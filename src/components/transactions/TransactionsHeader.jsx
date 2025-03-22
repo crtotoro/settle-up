@@ -3,7 +3,7 @@ import TransactionStats from './TransactionStats';
 
 export default function TransactionsHeader({ category, transactions, isPrimary }) {
   return (
-    <div className={`transactions-header ${!isPrimary ? categoryq : ''}`}>
+    <div className={`transactions-header ${!isPrimary ? category : ''}`}>
       {transactions.length ? (
         <>
           {isPrimary ? <h2>Transactions</h2> : <h4>{category} Transactions</h4>}

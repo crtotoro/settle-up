@@ -13,11 +13,12 @@
   "dependencies": {
     "@preact/signals-react": "^2.0.1",
     "bootstrap": "^5.3.3",
+    "moment": "^2.29.4",
+    "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
-    "moment": "^2.29.4",
-    "papaparse": "^5.4.1"
+    "settle-up": "file:"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
