@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Button } from 'react-bootstrap';
 
 export default function Transaction({ id, transaction }) {
 
@@ -8,6 +9,7 @@ export default function Transaction({ id, transaction }) {
       <span className='transaction-description'>{transaction["Description"].replace("&amp;", '')}</span>
       <span className='transaction-amount'>Amount: {(parseFloat(transaction["Amount"])).toLocaleString("en-US", {style:"currency", currency:"USD"})}</span>
       <span className='transaction-payor'>Payor: {transaction["payor"]}</span>
+      
     </div>
   )
 }
