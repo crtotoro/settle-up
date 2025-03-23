@@ -105,10 +105,6 @@ export default function transactionsReducer(state, action) {
         : transaction
       );
     }
-    // Action to reset overrides for all transactions
-    case 'RESET_ALL_OVERRIDES': {
-      return state.map(transaction => ({ ...transaction, override: false}))
-    }
     default: {
       return state;
     }
