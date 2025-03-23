@@ -8,7 +8,7 @@ export default function ExportButton() {
 
   const filterTransactions = (data) => {
     return data
-      .filter(transaction => ['verify', 'include'].includes(transaction['status']))
+      .filter(transaction => ['include'].includes(transaction['status']))
       .sort((a,b) => {
         const [monthA, dayA, yearA] = a["Post Date"].split("/").map(Number);
         const [monthB, dayB, yearB] = b["Post Date"].split("/").map(Number);

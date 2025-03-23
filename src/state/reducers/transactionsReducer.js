@@ -14,6 +14,8 @@ export default function transactionsReducer(state, action) {
   }
   */
 
+
+  // TODO: Figure out how to filter out reversed charges 
   switch(action.type) {
     // run on new file upload
     case 'SET_TRANSACTIONS': {
@@ -47,7 +49,7 @@ export default function transactionsReducer(state, action) {
               status = 'verify';
           }
 
-          return {...transaction, status, payor};
+          return {...transaction, status, payor, override};
         })
         .map(transaction => {
           return Object.fromEntries(Object.entries(transaction).filter(([key]) => allowedHeaders.includes(key)));
